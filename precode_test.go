@@ -43,12 +43,9 @@ func TestMainHandlerWhenCountMoreThanTotal(t *testing.T) {
 
     require.Equal(t, http.StatusOK, rr.Code)
 
-    // Получаем ответ
     result := rr.Body.String()
 
-    // Разбиваем по запятым
     cafes := strings.Split(result, ",")
 
-    // Должно вернуться ровно totalCount
     assert.Len(t, cafes, totalCount)
 }
